@@ -14,6 +14,10 @@ Contact.prototype.fullName = function () {
     return this.firstName + " " + this.lastName;
 }
 
+Address.prototype.fullAddress = function() {
+    return this.street + ", " + this.city + ", " + this.county;
+}
+
 $(document).ready(function () {
     $("add-address").click(function (e) { 
         e.preventDefault();

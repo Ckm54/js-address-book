@@ -1,7 +1,7 @@
 function Contact(first, last) {
     this.firstName = first;
     this.lastName = last;
-    this.address = [];
+    this.addresses = [];
 }
 
 function Address(street, city, county){
@@ -41,6 +41,15 @@ $(document).ready(function () {
         let inputtedLastName = $("input#new-last-name").val();
 
         let newContact = new Contact(inputtedFirstName, inputtedLastName);
+
+        $(".new-address").each(function () { 
+             let inputtedStreet = $(this).find("input.new-street").val();
+             let inputtedCity = $(this).find("input.new-city").val();
+             let inputtedCounty = $(this).find("input.new-county").val();
+
+             let newAddress = new Address(inputtedStreet, inputtedCity, inputtedCounty);
+             newContact.addresses.push(newAddress);
+        });
 
         $("ul#contacts").append("<li><span class='contact'>" + newContact.fullName() + "</span></li>");
 

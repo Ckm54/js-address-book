@@ -15,6 +15,25 @@ Contact.prototype.fullName = function () {
 }
 
 $(document).ready(function () {
+    $("add-address").click(function (e) { 
+        e.preventDefault();
+        $("new-addresses").append('<div class = "new-address">' + 
+        '<div class="form-group">' + 
+        '<label for="new-street">Street</label>' + 
+        '<input type="text" class="form-control new-street">' + 
+        '</div>' + 
+        '<div class="form-group">' + 
+        '<label for="new-city">City</label>' + 
+        '<input type="text" class="form-control new-city">' + 
+        '</div>' + 
+        '<div class="form-group">' + 
+        '<label for="new-county">County</label>' + 
+        '<input type="text" class="form-control new-county">' + 
+        '</div>' + 
+        '</div>');
+    });
+
+
     $("form#new-contact").submit(function (e) { 
         e.preventDefault();
         
@@ -34,5 +53,5 @@ $(document).ready(function () {
 
         $("input#new-first-name").val("")
         $("input#new-last-name").val("")
-    })
+    });
 })
